@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -10,7 +10,7 @@ const projects = [
     description:
       "BERT-based classification system achieving 90% accuracy in symptom triage with structured REST APIs and optimized data pipelines.",
     metrics: ["90% accuracy", "REST APIs", "Low latency"],
-    gradient: "from-primary/10 to-accent/5",
+    color: "primary",
   },
   {
     title: "Fraud Detection Pipeline",
@@ -19,7 +19,7 @@ const projects = [
     description:
       "Real-time transaction monitoring pipeline handling 2K+ daily transactions with ML anomaly detection at 96% accuracy.",
     metrics: ["96% accuracy", "2K+ tx/day", "Scalable"],
-    gradient: "from-accent/10 to-primary/5",
+    color: "accent",
   },
   {
     title: "Health Assistant API",
@@ -28,19 +28,18 @@ const projects = [
     description:
       "FastAPI backend with multi-modal query capabilities, sub-100ms latency, and comprehensive API documentation.",
     metrics: ["<100ms latency", "Multi-modal", "FastAPI"],
-    gradient: "from-primary/10 to-primary/5",
+    color: "primary",
   },
 ];
 
 const Projects = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
   return (
     <section id="projects" className="py-32 px-6 relative" ref={ref}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 line-gradient opacity-15" />
-
-      {/* Ambient */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/[0.02] rounded-full blur-[130px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto">
@@ -66,47 +65,58 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.15 + i * 0.12, duration: 0.6 }}
+              onMouseEnter={() => setHoveredIdx(i)}
+              onMouseLeave={() => setHoveredIdx(null)}
               className="group relative rounded-2xl bg-card border border-border card-hover overflow-hidden cursor-pointer"
             >
-              {/* Top accent */}
-              <div className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${project.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+              {/* Animated gradient border on hover */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                style={{
+                  background: `linear-gradient(135deg, hsl(var(--${project.color}) / 0.05), transparent 60%)`,
+                }}
+              />
 
-              <div className="p-7 md:p-9">
+              {/* Number indicator */}
+              <div className="absolute top-6 right-6 md:top-8 md:right-8 font-mono text-6xl md:text-8xl font-bold text-foreground/[0.02] group-hover:text-foreground/[0.04] transition-all duration-700 select-none">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+
+              <div className="relative p-7 md:p-9">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                   <div className="flex-1 space-y-4">
-                    {/* Title row */}
                     <div className="flex items-center gap-3">
                       <h3 className="text-xl md:text-2xl font-bold tracking-tight group-hover:text-primary transition-colors duration-500">
                         {project.title}
                       </h3>
-                      <ArrowUpRight
-                        size={18}
-                        className="text-muted-foreground/50 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500"
-                      />
+                      <motion.div
+                        animate={hoveredIdx === i ? { x: 3, y: -3 } : { x: 0, y: 0 }}
+                        transition={{ type: "spring", stiffness: 300 }}
+                      >
+                        <ArrowUpRight size={18} className="text-muted-foreground/50 group-hover:text-primary transition-colors duration-500" />
+                      </motion.div>
                     </div>
 
-                    {/* Tags */}
                     <div className="flex items-center gap-2 flex-wrap">
-                      {project.tags.map((tag) => (
-                        <span
+                      {project.tags.map((tag, j) => (
+                        <motion.span
                           key={tag}
-                          className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-primary/[0.06] text-primary border border-primary/10 group-hover:border-primary/20 transition-colors duration-500"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={inView ? { opacity: 1, scale: 1 } : {}}
+                          transition={{ delay: 0.3 + i * 0.12 + j * 0.05 }}
+                          className="text-[10px] font-mono px-2.5 py-1 rounded-full bg-primary/[0.06] text-primary border border-primary/10 group-hover:border-primary/25 group-hover:bg-primary/[0.1] transition-all duration-500"
                         >
                           {tag}
-                        </span>
+                        </motion.span>
                       ))}
-                      <span className="text-[10px] font-mono text-muted-foreground ml-1">
-                        {project.year}
-                      </span>
+                      <span className="text-[10px] font-mono text-muted-foreground ml-1">{project.year}</span>
                     </div>
 
-                    {/* Description */}
                     <p className="text-sm text-muted-foreground leading-relaxed max-w-xl group-hover:text-secondary-foreground transition-colors duration-500">
                       {project.description}
                     </p>
                   </div>
 
-                  {/* Metrics */}
                   <div className="flex md:flex-col gap-2 md:items-end shrink-0">
                     {project.metrics.map((m) => (
                       <span
