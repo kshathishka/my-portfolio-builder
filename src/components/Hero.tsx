@@ -122,7 +122,7 @@ const Hero = () => {
                 {displayText}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
-                  transition={{ repeat: Infinity, duration: 0.6, ease: "steps(2)" }}
+                  transition={{ repeat: Infinity, duration: 0.6, repeatType: "reverse" }}
                   className="inline-block w-[3px] h-[1.1em] bg-primary ml-0.5 align-middle rounded-sm"
                 />
               </p>
