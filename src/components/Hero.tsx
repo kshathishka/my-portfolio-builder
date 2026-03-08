@@ -118,8 +118,13 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.7 }}
               className="max-w-lg space-y-3"
             >
-              <p className="text-xl md:text-2xl font-medium text-foreground/80 leading-snug">
-                AI & Backend Engineer
+              <p className="text-xl md:text-2xl font-medium text-foreground/80 leading-snug font-mono">
+                {displayText}
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ repeat: Infinity, duration: 0.6, ease: "steps(2)" }}
+                  className="inline-block w-[3px] h-[1.1em] bg-primary ml-0.5 align-middle rounded-sm"
+                />
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Building production systems that don't break under pressure.{" "}
