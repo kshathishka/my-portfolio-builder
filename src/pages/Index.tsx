@@ -1,15 +1,19 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import MarqueeTicker from "@/components/MarqueeTicker";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import CursorGlow from "@/components/CursorGlow";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <CursorGlow />
       <Navbar />
       <Hero />
+      <MarqueeTicker />
       <About />
       <Experience />
       <Projects />
