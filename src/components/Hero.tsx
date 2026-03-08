@@ -1,8 +1,38 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import Avatar from "./Avatar";
 
+const roles = ["AI & Backend Engineer", "Python Enthusiast", "Problem Solver", "Code Architect"];
+
 const Hero = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    const speed = isDeleting ? 40 : 70;
+
+    if (!isDeleting && displayText === current) {
+      const pause = setTimeout(() => setIsDeleting(true), 2000);
+      return () => clearTimeout(pause);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setDisplayText(
+        isDeleting ? current.slice(0, displayText.length - 1) : current.slice(0, displayText.length + 1)
+      );
+    }, speed);
+
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, roleIndex]);
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden noise-bg">
       {/* Cinematic ambient */}
