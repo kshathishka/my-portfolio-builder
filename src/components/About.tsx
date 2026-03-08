@@ -1,64 +1,64 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const skills = [
   {
     category: "Languages",
     items: ["Python", "Java", "JavaScript", "TypeScript", "SQL"],
-    icon: "⌘",
+    accent: "primary",
   },
   {
     category: "Backend",
     items: ["FastAPI", "Node.js", "REST APIs", "Microservices", "Auth"],
-    icon: "⚡",
+    accent: "primary",
   },
   {
     category: "AI / ML",
     items: ["BERT / NLP", "Model Eval", "Data Pipelines", "Feature Eng."],
-    icon: "🧠",
+    accent: "accent",
   },
   {
     category: "Databases",
     items: ["MySQL", "MongoDB"],
-    icon: "◈",
+    accent: "primary",
   },
   {
     category: "Tooling",
     items: ["Git", "Postman", "VS Code", "DevTools"],
-    icon: "⚙",
+    accent: "primary",
   },
   {
     category: "Strengths",
     items: ["System Debugging", "Perf. Optimization", "Root-Cause Analysis"],
-    icon: "△",
+    accent: "accent",
   },
 ];
 
 const About = () => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <section id="about" className="py-32 px-6 relative" ref={ref}>
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 line-gradient opacity-20" />
+      {/* Section connector */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 line-gradient opacity-15" />
 
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
+          transition={{ duration: 0.7 }}
+          className="mb-20 max-w-2xl"
         >
-          <span className="font-mono text-xs text-primary tracking-widest uppercase">
-            01 — About
+          <span className="font-mono text-[11px] text-primary tracking-[0.25em] uppercase font-medium">
+            01 — Arsenal
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold mt-3 tracking-tight">
-            What I work with
+          <h2 className="text-4xl md:text-6xl font-bold mt-4 tracking-[-0.03em] leading-[1.05]">
+            Tools of the<br />
+            <span className="text-gradient-mixed">trade</span>
           </h2>
-          <p className="text-muted-foreground text-lg mt-4 max-w-xl leading-relaxed">
-            I build production-ready systems at the intersection of AI and backend engineering.
-            Here's my toolkit.
+          <p className="text-muted-foreground text-base mt-5 leading-relaxed">
+            Production-tested stack for building systems that scale. Every tool earned its spot.
           </p>
         </motion.div>
 
@@ -66,26 +66,31 @@ const About = () => {
           {skills.map((group, i) => (
             <motion.div
               key={group.category}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 25 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group p-5 rounded-xl bg-card border border-border border-glow-hover transition-all duration-500"
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.07 }}
+              className="group relative p-6 rounded-xl bg-card border border-border card-hover overflow-hidden"
             >
-              <div className="flex items-center gap-2.5 mb-4">
-                <span className="text-base">{group.icon}</span>
-                <h3 className="font-mono text-sm font-medium text-foreground">
-                  {group.category}
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-1.5">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-2.5 py-1 text-[11px] font-mono bg-secondary text-secondary-foreground rounded-md group-hover:bg-primary/5 group-hover:text-foreground transition-colors duration-300"
-                  >
-                    {item}
-                  </span>
-                ))}
+              {/* Hover gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-5">
+                  <h3 className="font-mono text-xs font-semibold text-foreground tracking-wide uppercase">
+                    {group.category}
+                  </h3>
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover:bg-primary group-hover:shadow-[0_0_10px_hsl(151_100%_54%_/_0.5)] transition-all duration-500" />
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="px-3 py-1.5 text-[11px] font-mono bg-secondary text-secondary-foreground rounded-md group-hover:bg-primary/[0.06] group-hover:text-foreground transition-all duration-500"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
