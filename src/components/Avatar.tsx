@@ -3,43 +3,73 @@ import avatarImg from "@/assets/avatar.png";
 
 const Avatar = () => {
   return (
-    <div className="relative w-48 h-48 md:w-56 md:h-56">
-      {/* Outer rotating ring */}
+    <div className="relative w-52 h-52 md:w-64 md:h-64">
+      {/* Outer rotating dashed ring */}
       <motion.div
         animate={{ rotate: 360 }}
-        transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+        transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
         className="absolute inset-0 rounded-full border border-dashed border-primary/20"
       />
 
       {/* Middle pulsing ring */}
       <motion.div
-        animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.6, 0.3] }}
+        animate={{ scale: [1, 1.04, 1], opacity: [0.2, 0.5, 0.2] }}
         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-        className="absolute inset-2 rounded-full border border-primary/15"
+        className="absolute inset-3 rounded-full border border-primary/10"
       />
 
-      {/* Glow behind avatar */}
-      <div className="absolute inset-4 rounded-full bg-primary/10 blur-2xl" />
+      {/* Glow */}
+      <div className="absolute inset-6 rounded-full bg-primary/8 blur-2xl" />
 
-      {/* Avatar image */}
+      {/* Avatar — gentle float */}
       <motion.div
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0, 1] }}
-        className="absolute inset-4 rounded-full overflow-hidden border-2 border-primary/20"
+        initial={{ scale: 0.7, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1, y: [0, -6, 0] }}
+        transition={{
+          scale: { delay: 0.3, duration: 0.8, ease: [0.25, 0.1, 0, 1] },
+          opacity: { delay: 0.3, duration: 0.8 },
+          y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
+        }}
+        className="absolute inset-4 rounded-full overflow-hidden border-2 border-primary/15 bg-card"
       >
         <img
           src={avatarImg}
           alt="Kshathishka Parakala"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top scale-110"
         />
       </motion.div>
 
-      {/* Floating status dot */}
+      {/* Floating emoji badges */}
+      {[
+        { emoji: "💻", delay: 0, x: -12, y: 20, duration: 3.5 },
+        { emoji: "🎧", delay: 0.5, x: 85, y: 5, duration: 4 },
+        { emoji: "✨", delay: 1, x: 90, y: 75, duration: 3 },
+      ].map((b) => (
+        <motion.div
+          key={b.emoji}
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: [0, -5, 0],
+          }}
+          transition={{
+            opacity: { delay: 0.8 + b.delay, duration: 0.5 },
+            scale: { delay: 0.8 + b.delay, type: "spring", stiffness: 300 },
+            y: { repeat: Infinity, duration: b.duration, ease: "easeInOut", delay: b.delay },
+          }}
+          className="absolute text-lg md:text-xl"
+          style={{ left: `${b.x}%`, top: `${b.y}%` }}
+        >
+          {b.emoji}
+        </motion.div>
+      ))}
+
+      {/* Status pill */}
       <motion.div
-        animate={{ y: [0, -4, 0] }}
-        transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        className="absolute -bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border backdrop-blur-sm"
+        animate={{ y: [0, -3, 0] }}
+        transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+        className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border backdrop-blur-sm"
       >
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -49,16 +79,16 @@ const Avatar = () => {
       </motion.div>
 
       {/* Orbiting particles */}
-      {[0, 120, 240].map((deg, i) => (
+      {[0, 180].map((deg, i) => (
         <motion.div
           key={deg}
           animate={{ rotate: [deg, deg + 360] }}
-          transition={{ repeat: Infinity, duration: 12 + i * 3, ease: "linear" }}
+          transition={{ repeat: Infinity, duration: 15 + i * 5, ease: "linear" }}
           className="absolute inset-0"
           style={{ transformOrigin: "center" }}
         >
           <div
-            className="absolute w-1.5 h-1.5 rounded-full bg-primary/60"
+            className="absolute w-1.5 h-1.5 rounded-full bg-primary/50"
             style={{ top: 0, left: "50%", transform: "translateX(-50%)" }}
           />
         </motion.div>
