@@ -4,30 +4,23 @@ import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Medical Triage System",
-    tags: ["LLM", "NLP", "BERT"],
+    title: "StudyGen.ai",
+    tags: ["FastAPI", "LLM", "Learning Platform"],
     year: "2025",
     description:
-      "BERT-based classification system achieving 90% accuracy in symptom triage with structured REST APIs and optimized data pipelines.",
-    metrics: ["90% accuracy", "REST APIs", "Low latency"],
+      "Built an end-to-end AI learning platform with automatic quiz generation, flashcards, and a conversational tutor from user-supplied study material.",
+    metrics: ["Real-time tutoring", "LLM pipelines", "Personalized feedback"],
+    link: "https://github.com/kshathishka/studygen.ai",
     color: "primary",
   },
   {
-    title: "Fraud Detection Pipeline",
-    tags: ["ML", "Real-time", "Monitoring"],
+    title: "Medical Triage System",
+    tags: ["BERT", "NLP", "REST APIs"],
     year: "2025",
     description:
-      "Real-time transaction monitoring pipeline handling 2K+ daily transactions with ML anomaly detection at 96% accuracy.",
-    metrics: ["96% accuracy", "2K+ tx/day", "Scalable"],
-    color: "accent",
-  },
-  {
-    title: "Health Assistant API",
-    tags: ["FastAPI", "Multi-modal"],
-    year: "2024",
-    description:
-      "FastAPI backend with multi-modal query capabilities, sub-100ms latency, and comprehensive API documentation.",
-    metrics: ["<100ms latency", "Multi-modal", "FastAPI"],
+      "Engineered a BERT-based symptom classifier with 90% accuracy across 15+ triage categories and optimized inference to under 200ms under load.",
+    metrics: ["90% accuracy", "<200ms latency", "OpenAPI docs"],
+    link: "https://github.com/kshathishka/arovia",
     color: "primary",
   },
 ];
@@ -52,7 +45,7 @@ const Projects = () => {
           <span className="font-mono text-[11px] text-primary tracking-[0.25em] uppercase font-medium">
             03 — Work
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 tracking-[-0.03em] leading-[1.05]">
+          <h2 className="text-2xl md:text-4xl font-bold mt-4 leading-[1.4] pixel-title">
             Selected<br />
             <span className="text-gradient-mixed">projects</span>
           </h2>
@@ -67,11 +60,11 @@ const Projects = () => {
               transition={{ delay: 0.15 + i * 0.12, duration: 0.6 }}
               onMouseEnter={() => setHoveredIdx(i)}
               onMouseLeave={() => setHoveredIdx(null)}
-              className="group relative rounded-2xl bg-card border border-border card-hover overflow-hidden cursor-pointer"
+              className="group relative rounded-sm bg-card border-2 border-border card-hover overflow-hidden cursor-pointer retro-panel"
             >
               {/* Animated gradient border on hover */}
               <motion.div
-                className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                className="absolute inset-0 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                 style={{
                   background: `linear-gradient(135deg, hsl(var(--${project.color}) / 0.05), transparent 60%)`,
                 }}
@@ -115,6 +108,16 @@ const Projects = () => {
                     <p className="text-sm text-muted-foreground leading-relaxed max-w-xl group-hover:text-secondary-foreground transition-colors duration-500">
                       {project.description}
                     </p>
+
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-mono text-primary hover:text-accent transition-colors"
+                    >
+                      {project.link.replace("https://", "")}
+                      <ArrowUpRight size={13} />
+                    </a>
                   </div>
 
                   <div className="flex md:flex-col gap-2 md:items-end shrink-0">

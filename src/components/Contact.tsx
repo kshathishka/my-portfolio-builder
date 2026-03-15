@@ -23,12 +23,12 @@ const Contact = () => {
           <span className="font-mono text-[11px] text-primary tracking-[0.25em] uppercase font-medium">
             04 — Connect
           </span>
-          <h2 className="text-4xl md:text-7xl font-bold mt-4 tracking-[-0.03em]">
+          <h2 className="text-2xl md:text-5xl font-bold mt-4 leading-[1.4] pixel-title">
             Let's build<br />
             <span className="text-gradient-mixed">something great</span>
           </h2>
           <p className="text-muted-foreground mt-6 max-w-md mx-auto text-base leading-relaxed">
-            Always down for interesting projects, collabs, or just a good tech conversation.
+            AI &amp; Backend Engineer focused on production systems and applied ML. Open for internships and high-impact engineering roles.
           </p>
         </motion.div>
 
@@ -37,11 +37,11 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="flex flex-col items-center gap-6 mb-14"
+          className="flex flex-col items-center gap-3 mb-14"
         >
           <a
             href="mailto:kshathishka@email.com"
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold text-sm rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_60px_-5px_hsl(151_100%_54%_/_0.4)]"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-semibold text-sm rounded-sm overflow-hidden retro-btn"
           >
             <span className="relative z-10 flex items-center gap-3">
               <Mail size={16} />
@@ -50,6 +50,7 @@ const Contact = () => {
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </a>
+          <p className="text-sm font-mono text-secondary-foreground">+91 73866 89393</p>
         </motion.div>
 
         {/* Socials */}
@@ -60,15 +61,15 @@ const Contact = () => {
           className="flex items-center justify-center gap-3"
         >
           {[
-            { icon: Github, href: "https://github.com", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+            { icon: Github, href: "https://github.com/kshathishka", label: "GitHub" },
+            { icon: Linkedin, href: "https://linkedin.com/in/kshathishka", label: "LinkedIn" },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="magnetic-hover inline-flex items-center justify-center w-12 h-12 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+              className="magnetic-hover inline-flex items-center justify-center w-12 h-12 rounded-sm border-2 border-border text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
             >
               <Icon size={18} />
             </a>
@@ -86,7 +87,7 @@ const Contact = () => {
           © 2025 Kshathishka Parakala
         </p>
         <p className="font-mono text-[11px] text-muted-foreground/60">
-          B.Tech AI & ML — Anurag University
+          B.Tech AI &amp; ML - Anurag University (2023 - 2027)
         </p>
       </div>
     </section>

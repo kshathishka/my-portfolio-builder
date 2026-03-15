@@ -15,11 +15,11 @@ const Experience = () => {
   ];
 
   const bullets = [
-    "Led backend architecture serving thousands of daily transactions across distributed systems",
-    "Achieved 40% API speedup through structured debugging and query optimization",
-    "Designed ML fraud detection pipeline with 96% accuracy in production",
-    "Diagnosed and resolved production issues with log analysis and profiling tools",
-    "Coordinated cross-functional troubleshooting in a distributed team environment",
+    "Architected backend infrastructure handling 2,000+ daily transactions across a multi-service system with high reliability.",
+    "Reduced API response latency by 40% through query profiling, index optimization, and request-pipeline restructuring.",
+    "Designed and productionized an ML fraud detection pipeline achieving 96% accuracy on live transaction data.",
+    "Led production incident response using log analysis and distributed tracing, eliminating recurring failures.",
+    "Coordinated technical delivery across a team of 8 engineers in a distributed environment.",
   ];
 
   return (
@@ -37,7 +37,7 @@ const Experience = () => {
           <span className="font-mono text-[11px] text-primary tracking-[0.25em] uppercase font-medium">
             02 — Impact
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 tracking-[-0.03em] leading-[1.05]">
+          <h2 className="text-2xl md:text-4xl font-bold mt-4 leading-[1.4] pixel-title">
             Numbers don't<br />
             <span className="text-gradient-primary">lie</span>
           </h2>
@@ -51,7 +51,7 @@ const Experience = () => {
               initial={{ opacity: 0, y: 25 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 + i * 0.08, duration: 0.6 }}
-              className="group relative p-6 rounded-xl bg-card border border-border card-hover overflow-hidden text-center"
+              className="group relative p-6 rounded-sm bg-card border-2 border-border card-hover overflow-hidden text-center retro-panel"
             >
               <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10">
@@ -70,15 +70,15 @@ const Experience = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.4, duration: 0.7 }}
-          className="relative p-8 md:p-10 rounded-2xl bg-card border border-border glow-sm overflow-hidden"
+          className="relative p-8 md:p-10 rounded-sm bg-card border-2 border-border glow-sm overflow-hidden retro-panel"
         >
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
           <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8 gap-4">
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold tracking-tight">Senior Tech Lead</h3>
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tight">Backend &amp; AI Engineering Intern</h3>
               <p className="text-primary font-mono text-sm mt-2 tracking-wide">
-                Swecha × Meta × IIITH
+                Swecha × Meta × IIIT Hyderabad AI Programme
               </p>
             </div>
             <motion.span
@@ -87,7 +87,7 @@ const Experience = () => {
               transition={{ delay: 0.6, type: "spring" }}
               className="font-mono text-xs text-muted-foreground px-4 py-2 rounded-full bg-secondary border border-border"
             >
-              2025
+              May 2025 - Sep 2025
             </motion.span>
           </div>
 

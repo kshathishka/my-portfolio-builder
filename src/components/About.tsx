@@ -9,22 +9,22 @@ const skills = [
   },
   {
     category: "Backend",
-    items: ["FastAPI", "Node.js", "REST APIs", "Microservices", "Auth"],
+    items: ["FastAPI", "Node.js", "REST APIs", "Microservices", "JWT Auth"],
     accent: "primary",
   },
   {
     category: "AI / ML",
-    items: ["BERT / NLP", "Model Eval", "Data Pipelines", "Feature Eng."],
+    items: ["BERT", "Transformer FT", "LLM Integration", "NLP Pipelines", "Anomaly Detect"],
     accent: "accent",
   },
   {
     category: "Databases",
-    items: ["MySQL", "MongoDB"],
+    items: ["MySQL", "MongoDB", "Indexing", "Schema Design"],
     accent: "primary",
   },
   {
     category: "Tooling",
-    items: ["Git", "Postman", "VS Code", "DevTools"],
+    items: ["Git", "Docker (Basics)", "Postman", "Tech Documentation"],
     accent: "primary",
   },
   {
@@ -53,7 +53,7 @@ const About = () => {
           <span className="font-mono text-[11px] text-primary tracking-[0.25em] uppercase font-medium">
             01 — Arsenal
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 tracking-[-0.03em] leading-[1.05]">
+          <h2 className="text-2xl md:text-4xl font-bold mt-4 leading-[1.4] pixel-title">
             Tools of the<br />
             <span className="text-gradient-mixed">trade</span>
           </h2>
@@ -69,7 +69,7 @@ const About = () => {
               initial={{ opacity: 0, y: 25 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 + i * 0.07 }}
-              className="group relative p-6 rounded-xl bg-card border border-border card-hover overflow-hidden"
+              className="group relative p-6 rounded-sm bg-card border-2 border-border card-hover overflow-hidden retro-panel"
             >
               {/* Hover gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

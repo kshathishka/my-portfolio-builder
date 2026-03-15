@@ -10,7 +10,7 @@ const MarqueeTicker = () => {
   const doubled = [...skills, ...skills];
 
   return (
-    <div className="relative overflow-hidden py-6 border-y border-border/50">
+    <div className="relative overflow-hidden py-6 border-y-2 border-border bg-card/40">
       {/* Fade edges */}
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
@@ -23,9 +23,9 @@ const MarqueeTicker = () => {
         {doubled.map((skill, i) => (
           <span
             key={`${skill}-${i}`}
-            className="flex items-center gap-3 text-sm font-mono text-muted-foreground/60 hover:text-primary transition-colors duration-300"
+            className="flex items-center gap-3 text-base font-mono text-muted-foreground/70 hover:text-primary transition-colors duration-300"
           >
-            <span className="w-1 h-1 rounded-full bg-primary/30" />
+            <span className="w-1.5 h-1.5 bg-primary/40" />
             {skill}
           </span>
         ))}

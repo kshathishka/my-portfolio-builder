@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import avatarImg from "@/assets/avatar.png";
+import avatarImg from "@/assets/mechibi-cutout.png";
 
 const Avatar = () => {
   return (
@@ -8,18 +8,18 @@ const Avatar = () => {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
-        className="absolute inset-0 rounded-full border border-dashed border-primary/20"
+        className="absolute inset-0 rounded-[8px] border-2 border-dashed border-primary/35"
       />
 
       {/* Middle pulsing ring */}
       <motion.div
         animate={{ scale: [1, 1.04, 1], opacity: [0.2, 0.5, 0.2] }}
         transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-        className="absolute inset-3 rounded-full border border-primary/10"
+        className="absolute inset-3 rounded-[6px] border-2 border-primary/20"
       />
 
       {/* Glow */}
-      <div className="absolute inset-6 rounded-full bg-primary/8 blur-2xl" />
+      <div className="absolute inset-6 rounded-[6px] bg-primary/10 blur-2xl" />
 
       {/* Avatar — gentle float */}
       <motion.div
@@ -30,12 +30,12 @@ const Avatar = () => {
           opacity: { delay: 0.3, duration: 0.8 },
           y: { repeat: Infinity, duration: 4, ease: "easeInOut" },
         }}
-        className="absolute inset-4 rounded-full overflow-hidden border-2 border-primary/15 bg-card"
+        className="absolute inset-4 rounded-[4px] overflow-hidden border-2 border-primary/30 bg-transparent"
       >
         <img
           src={avatarImg}
           alt="Kshathishka Parakala"
-          className="w-full h-full object-cover object-top scale-110"
+          className="w-full h-full object-contain object-top scale-105 drop-shadow-[0_8px_12px_hsl(28_35%_8%_/_0.6)]"
         />
       </motion.div>
 
@@ -69,7 +69,7 @@ const Avatar = () => {
       <motion.div
         animate={{ y: [0, -3, 0] }}
         transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-        className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border backdrop-blur-sm"
+        className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-3 py-1 rounded-sm bg-card border-2 border-border retro-panel"
       >
         <span className="relative flex h-2 w-2">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />

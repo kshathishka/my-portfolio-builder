@@ -26,7 +26,7 @@ const Navbar = () => {
       transition={{ duration: 0.6, delay: 0.1 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? "bg-background/60 backdrop-blur-2xl border-b border-border/50"
+          ? "bg-background/85 border-b-2 border-border"
           : "bg-transparent"
       }`}
     >
@@ -44,7 +44,7 @@ const Navbar = () => {
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 + i * 0.05 }}
-              className="relative px-4 py-2 text-[13px] text-muted-foreground hover:text-foreground transition-all duration-300 rounded-md group"
+              className="relative px-4 py-2 text-[13px] font-mono text-muted-foreground hover:text-foreground transition-all duration-300 rounded-sm group"
             >
               {l.label}
               <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-0 h-px bg-primary group-hover:w-4 transition-all duration-300" />
@@ -55,7 +55,7 @@ const Navbar = () => {
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.45 }}
-            className="ml-4 px-5 py-1.5 text-[13px] font-semibold bg-primary text-primary-foreground rounded-full hover:shadow-[0_0_30px_-5px_hsl(151_100%_54%_/_0.4)] transition-all duration-300"
+              className="ml-4 px-5 py-1.5 text-[13px] font-semibold bg-primary text-primary-foreground retro-btn"
           >
             Say Hello
           </motion.a>
@@ -76,7 +76,7 @@ const Navbar = () => {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-background/95 backdrop-blur-2xl border-b border-border/50"
+            className="md:hidden overflow-hidden bg-background border-b-2 border-border"
           >
             <div className="px-6 py-6 space-y-1">
               {links.map((l) => (

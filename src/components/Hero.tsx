@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import Avatar from "./Avatar";
 
-const roles = ["AI & Backend Engineer", "Python Enthusiast", "Problem Solver", "Code Architect"];
+const roles = ["AI & Backend Engineer", "Production Systems", "Applied ML", "API Optimization"];
 
 const Hero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -74,7 +74,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm"
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-sm border-2 border-border retro-panel"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
@@ -89,7 +89,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.9, ease: [0.25, 0.1, 0, 1] }}
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold leading-[0.9] tracking-[-0.04em]"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] pixel-title"
               >
                 <span className="text-foreground">Kshathishka</span>
               </motion.h1>
@@ -97,7 +97,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.9, ease: [0.25, 0.1, 0, 1] }}
-                className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold leading-[0.9] tracking-[-0.04em]"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] pixel-title"
               >
                 <span className="text-gradient-mixed">Parakala</span>
                 <motion.span
@@ -118,7 +118,7 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.7 }}
               className="max-w-lg space-y-3"
             >
-              <p className="text-xl md:text-2xl font-medium text-foreground/80 leading-snug font-mono">
+              <p className="text-2xl md:text-3xl font-medium text-foreground/90 leading-snug font-mono">
                 {displayText}
                 <motion.span
                   animate={{ opacity: [1, 0] }}
@@ -127,8 +127,8 @@ const Hero = () => {
                 />
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Building production systems that don't break under pressure.{" "}
-                <span className="text-secondary-foreground">2K+ daily tx · 96% accuracy · 40% faster APIs.</span>
+                Backend and AI engineer with production internship experience designing systems handling 2K+ daily transactions.{" "}
+                <span className="text-secondary-foreground">40% API speedup · 96% fraud detection accuracy · B.Tech AI & ML (2027).</span>
               </p>
             </motion.div>
 
@@ -141,7 +141,7 @@ const Hero = () => {
             >
               <a
                 href="mailto:kshathishka@email.com"
-                className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold text-sm rounded-full overflow-hidden transition-all duration-500 hover:shadow-[0_0_50px_-5px_hsl(151_100%_54%_/_0.5)]"
+                className="group relative inline-flex items-center gap-2 px-7 py-3.5 bg-primary text-primary-foreground font-semibold text-sm rounded-sm overflow-hidden retro-btn"
               >
                 <span className="relative z-10 flex items-center gap-2">
                   <Mail size={15} />
@@ -152,15 +152,15 @@ const Hero = () => {
 
               <div className="flex items-center gap-2">
                 {[
-                  { icon: Github, href: "https://github.com", label: "GitHub" },
-                  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                  { icon: Github, href: "https://github.com/kshathishka", label: "GitHub" },
+                  { icon: Linkedin, href: "https://linkedin.com/in/kshathishka", label: "LinkedIn" },
                 ].map(({ icon: Icon, href, label }) => (
                   <a
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="magnetic-hover inline-flex items-center justify-center w-12 h-12 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-primary/5 transition-all duration-300"
+                    className="magnetic-hover inline-flex items-center justify-center w-12 h-12 rounded-sm border-2 border-border text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
                   >
                     <Icon size={18} />
                   </a>
@@ -181,7 +181,7 @@ const Hero = () => {
             {/* Terminal card */}
             <div className="relative w-full max-w-xs">
               <div className="absolute -inset-1 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl blur-xl" />
-              <div className="relative p-5 rounded-xl bg-card/90 border border-border backdrop-blur-sm shimmer">
+              <div className="relative p-5 rounded-sm retro-panel shimmer">
                 <div className="flex items-center gap-1.5 mb-4">
                   <div className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-primary/40" />
@@ -197,15 +197,15 @@ const Hero = () => {
                   </div>
                   <div className="pl-4">
                     <span className="text-muted-foreground">role:</span>{" "}
-                    <span className="text-primary">'AI Engineer'</span><span className="text-muted-foreground">,</span>
+                    <span className="text-primary">'AI & Backend Engineer'</span><span className="text-muted-foreground">,</span>
                   </div>
                   <div className="pl-4">
-                    <span className="text-muted-foreground">precision:</span>{" "}
-                    <span className="text-accent">0.96</span><span className="text-muted-foreground">,</span>
+                    <span className="text-muted-foreground">systems:</span>{" "}
+                    <span className="text-accent">'2k+/day'</span><span className="text-muted-foreground">,</span>
                   </div>
                   <div className="pl-4">
-                    <span className="text-muted-foreground">status:</span>{" "}
-                    <span className="text-primary">'shipping'</span>{" "}
+                    <span className="text-muted-foreground">impact:</span>{" "}
+                    <span className="text-primary">'40% faster APIs'</span>{" "}
                     <span className="text-lg">🚀</span>
                   </div>
                   <div><span className="text-muted-foreground">{"}"}</span></div>
