@@ -23,6 +23,46 @@ const projects = [
     link: "https://github.com/kshathishka/arovia",
     color: "primary",
   },
+  {
+    title: "Smart Hospital Appointment Booking System",
+    tags: ["HealthTech", "Web Platform", "Scheduling"],
+    year: "2026",
+    description:
+      "Designed a Zomato-style hospital discovery and appointment platform with location-based search, doctor specialization filters, ratings, and slot-based booking workflows.",
+    metrics: ["Nearby hospital discovery", "Doctor + specialty listings", "Appointment scheduling API"],
+    link: "https://github.com/kshathishka",
+    color: "primary",
+  },
+  {
+    title: "Automated Human Activity Surveillance System",
+    tags: ["Python", "OpenCV", "Computer Vision"],
+    year: "2026",
+    description:
+      "Built a CVIP mini project that detects and tracks people in CCTV streams and raises alerts on suspicious movement patterns to reduce manual monitoring fatigue.",
+    metrics: ["Real-time human detection", "Movement tracking", "Suspicious behavior flagging"],
+    link: "https://github.com/kshathishka",
+    color: "primary",
+  },
+  {
+    title: "Collaborative Study Planner (MVP)",
+    tags: ["EdTech", "Productivity", "Collaboration"],
+    year: "2026",
+    description:
+      "Created an MVP study collaboration platform inspired by Notion-style workflows where students share schedules, track group tasks, and visualize progress for accountability.",
+    metrics: ["Shared study schedules", "Group task tracking", "Progress visibility dashboard"],
+    link: "https://github.com/kshathishka",
+    color: "primary",
+  },
+  {
+    title: "Telugu Health Text Data Collection Pipeline",
+    tags: ["NLP", "Data Engineering", "Low-Resource Languages"],
+    year: "2026",
+    description:
+      "Developed a dataset creation pipeline for Telugu health NLP by combining Wikipedia scraping, YouTube subtitle extraction, OCR from PDFs, and translated English health corpora, followed by cleaning and tokenization.",
+    metrics: ["Multi-source text ingestion", "OCR + translation pipeline", "Tokenized Telugu health corpus"],
+    link: "https://github.com/kshathishka",
+    color: "primary",
+  },
 ];
 
 const Projects = () => {

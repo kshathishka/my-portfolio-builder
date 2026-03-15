@@ -32,7 +32,7 @@ const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#" className="font-mono font-bold text-base tracking-tight group">
-          <span className="text-primary group-hover:drop-shadow-[0_0_8px_hsl(151_100%_54%_/_0.5)] transition-all duration-300">K</span>
+          <span className="text-primary group-hover:drop-shadow-[0_0_8px_hsl(var(--accent)_/_0.45)] transition-all duration-300">K</span>
           <span className="text-foreground">P</span>
         </a>
 

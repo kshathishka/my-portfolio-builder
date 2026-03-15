@@ -36,7 +36,7 @@ const CursorGlow = () => {
         style={{
           left: pos.x - 250,
           top: pos.y - 250,
-          background: "radial-gradient(circle, hsl(37 96% 64% / 0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, hsl(var(--accent) / 0.12) 0%, hsl(var(--primary) / 0.08) 42%, transparent 72%)",
           transition: "left 0.15s ease-out, top 0.15s ease-out",
         }}
       />

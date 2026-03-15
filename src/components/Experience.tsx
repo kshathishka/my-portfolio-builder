@@ -55,7 +55,7 @@ const Experience = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10">
-                <h.icon size={16} className="mx-auto mb-3 text-primary/60 group-hover:text-primary group-hover:drop-shadow-[0_0_8px_hsl(151_100%_54%_/_0.5)] transition-all duration-500" />
+                <h.icon size={16} className="mx-auto mb-3 text-primary/60 group-hover:text-primary group-hover:drop-shadow-[0_0_8px_hsl(var(--accent)_/_0.45)] transition-all duration-500" />
                 <div className="text-3xl md:text-4xl font-bold font-mono text-gradient-primary tracking-tight">
                   <AnimatedCounter target={h.stat} />
                 </div>
@@ -100,7 +100,7 @@ const Experience = () => {
                 transition={{ delay: 0.55 + i * 0.1, type: "spring", stiffness: 100 }}
                 className="flex gap-4 group/item"
               >
-                <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/item:bg-primary group-hover/item:shadow-[0_0_8px_hsl(151_100%_54%_/_0.5)] transition-all duration-300" />
+                  <span className="shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/item:bg-primary group-hover/item:shadow-[0_0_8px_hsl(var(--accent)_/_0.45)] transition-all duration-300" />
                 <span className="text-[15px] text-muted-foreground group-hover/item:text-foreground transition-colors duration-300 leading-relaxed">
                   {b}
                 </span>
