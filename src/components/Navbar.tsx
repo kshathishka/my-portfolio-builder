@@ -9,6 +9,12 @@ const links = [
   { label: "Contact", href: "#contact" },
 ];
 
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL || "kshathishka@email.com";
+
+/**
+ * Navigation bar component with responsive menu
+ * Features smooth animations and scroll-based styling
+ */
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +57,7 @@ const Navbar = () => {
             </motion.a>
           ))}
           <motion.a
-            href="mailto:kshathishka@email.com"
+            href={`mailto:${contactEmail}`}
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.45 }}

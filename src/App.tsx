@@ -6,8 +6,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      gcTime: 1000 * 60 * 10, // 10 minutes (formerly cacheTime)
+    },
+  },
+});
 
+/**
+ * Main App component with routing and global providers
+ * Sets up React Query, Toast notifications, and Router
+ */
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>

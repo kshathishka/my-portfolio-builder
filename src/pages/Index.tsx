@@ -7,6 +7,10 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import CursorGlow from "@/components/CursorGlow";
 
+/**
+ * Main index page component
+ * Combines all sections into a single scrollable page experience
+ */
 const Index = () => {
   return (
     <div className="min-h-screen bg-background retro-site">
